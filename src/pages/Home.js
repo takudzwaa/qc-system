@@ -1,13 +1,13 @@
 // Home.js
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ProductList from '../components/ProductList';
 import ProductForm from '../components/ProductForm';
 import SearchBar from '../components/SearchBar';
 import api from '../services/api';
 
 const Home = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
@@ -36,12 +36,12 @@ const Home = () => {
 
   const navigateToProductDetails = (productId) => {
     // Example of navigating to a product details page
-    history.push(`/products/${productId}`);
+    navigate(`/products/${productId}`);
   };
 
   return (
     <div>
-      <h1>Product Expiry Monitoring System</h1>
+      <h1>Fish Palace Quality Control System</h1>
       <SearchBar onSearch={handleSearch} />
       <ProductList products={searchResults} onItemClick={navigateToProductDetails} />
       <ProductForm />
